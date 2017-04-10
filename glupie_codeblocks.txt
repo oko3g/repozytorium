@@ -1,0 +1,60 @@
+// Sortowanie G³upie
+//--------------------------------------------------------
+// (C)2012 mgr Jerzy Wa³aszek
+// I Liceum Ogólnokszta³c¹ce
+// im. K. Brodziñskiego
+// w Tarnowie
+//--------------------------------------------------------
+
+#include <cmath>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+const int N = 20; // Liczebnoœæ zbioru.
+
+// Program g³ówny
+//---------------
+
+int main()
+{
+  int d[N],i;
+  
+  cout << "  Sortowanie  glupie\n"
+          "----------------------\n"
+          "(C)2005 Jerzy Walaszek\n\n"
+          "Przed sortowaniem:\n\n";
+
+// Najpierw wype³niamy tablicê d[] liczbami pseudolosowymi
+// a nastêpnie wyœwietlamy jej zawartoœæ
+
+  srand((unsigned)time(NULL));
+
+  for(i = 0; i < N; i++) d[i] = rand() % 100;
+  for(i = 0; i < N; i++) cout << setw(4) << d[i];
+  cout << endl;
+
+// Sortujemy
+
+  i = 0;
+  do
+  {
+    if(d[i] > d[i+1]) // Porz¹dek rosn¹cy
+    {
+      swap(d[i], d[i+1]);
+      i = 0;
+      continue;
+    }
+    i++;
+  } while(i < N-1);
+
+// Wyœwietlamy wynik sortowania
+
+  cout << "Po sortowaniu:\n\n";
+  for(i = 0; i < N; i++) cout << setw(4) << d[i];
+  cout << endl;
+  return 0;
+} 
