@@ -1,0 +1,75 @@
+// Sortowanie Zwariowane
+//--------------------------------------------------------
+// (C)2012 mgr Jerzy Wa³aszek
+// I Liceum Ogólnokszta³c¹ce
+// im. K. Brodziñskiego
+// w Tarnowie
+//--------------------------------------------------------
+
+program Bogo_Sort;
+
+const N = 8; // Liczebnoœæ zbioru. Nie wstawiaj liczb
+             // wiêkszych od 9, bo mo¿esz siê nie
+             // doczekaæ rozwi¹zania
+var
+  d : array[1..N] of integer;
+
+// Funkcja sprawdzaj¹ca uporz¹dkowanie w zbiorze
+//-----------------------------------------------------
+function Posortowane : boolean;
+var
+  i : integer;
+begin
+  for i := 1 to N - 1 do
+    if d[i] > d[i+1] then
+    begin
+      Posortowane := false; Exit;
+    end;
+  Posortowane := true;
+end;
+
+// Procedura tasuj¹ca zbiór
+//-------------------------
+procedure Tasuj;
+var
+  i,i1,i2,x : integer;
+begin
+  for i := 1 to 3 * N do
+  begin
+    i1 := 1 + random(N); i2 := 1 + random(N);
+    x := d[i1]; d[i1] := d[i2]; d[i2] := x;
+  end;
+end;
+
+// Program g³ówny
+//---------------
+
+var
+  i : integer;
+begin
+  writeln('Sortowanie  zwariowane');
+  writeln('----------------------');
+  writeln('(C)2005 Jerzy Walaszek');
+  writeln;
+
+// Najpierw wype³niamy tablicê d[] liczbami pseudolosowymi
+// a nastêpnie wyœwietlamy jej zawartoœæ
+
+  randomize;
+  for i := 1 to N do d[i] := random(10000);
+  writeln('Przed sortowaniem:'); writeln;
+  for i := 1 to N do write(d[i] : 6);
+  writeln; writeln;
+
+// Sortujemy
+
+  while not Posortowane do Tasuj;
+
+// Wyœwietlamy wynik sortowania
+
+  writeln('Po sortowaniu:'); writeln;
+  for i := 1 to N do write(d[i] : 6);
+  writeln; writeln;
+  writeln('Nacisnij Enter...');
+  readln;
+end. 
