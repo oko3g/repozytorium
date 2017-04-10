@@ -1,0 +1,70 @@
+// Sortowanie Metod¹ Shella
+//--------------------------------------------------------
+// (C)2012 mgr Jerzy Wa³aszek
+// I Liceum Ogólnokszta³c¹ce
+// im. K. Brodziñskiego
+// w Tarnowie
+//--------------------------------------------------------
+
+program Shell_Sort;
+
+const N = 20; // Liczebnoœæ zbioru.
+
+var
+  d : array[1..N] of integer;
+
+// Program g³ówny
+//---------------
+
+var
+  h,i,j,x : integer;
+begin
+  writeln(' Sortowanie metoda Shella ');
+  writeln('--------------------------');
+  writeln('  (C)2005 Jerzy Walaszek  ');
+  writeln;
+
+// Najpierw wype³niamy tablicê d[] liczbami pseudolosowymi
+// a nastêpnie wyœwietlamy jej zawartoœæ
+
+  randomize;
+  for i := 1 to N do d[i] := random(100);
+  writeln('Przed sortowaniem:'); writeln;
+  for i := 1 to N do write(d[i] : 4);
+  writeln;
+
+// Wyznaczamy wartoœæ pocz¹tkowego przesuniêcia
+
+  h := 1;
+  repeat
+    h := 3 * h + 1;
+  until h >= N;
+  h := (h div 9);
+  if h = 0 then h := 1; // istotne dla ma³ych N, dla wiêkszych mo¿na pomin¹æ!
+
+// Sortujemy
+
+  while h > 0 do
+  begin
+    for j := N - h downto 1 do
+    begin
+      x := d[j];
+      i := j + h;
+      while (i <= N) and (x > d[i]) do
+      begin
+        d[i - h] := d[i];
+        inc(i, h);
+      end;
+      d[i - h] := x;
+    end;
+    h := h div 3;
+  end;
+
+// Wyœwietlamy wynik sortowania
+
+  writeln('Po sortowaniu:'); writeln;
+  for i := 1 to N do write(d[i] : 4);
+  writeln;
+  writeln('Nacisnij Enter...');
+  readln;
+end. 
