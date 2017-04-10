@@ -1,0 +1,51 @@
+' Sortowanie G³upie
+'--------------------------------------------------------
+' (C)2012 mgr Jerzy Wa³aszek
+' I Liceum Ogólnokszta³c¹ce
+' im. K. Brodziñskiego
+' w Tarnowie
+'--------------------------------------------------------
+
+  Option Explicit
+  
+  Const N = 20 ' Liczebnoœæ zbioru.
+
+  Dim d(1 To N) As Integer, i As Integer
+
+  Print "  Sortowanie  glupie  "
+  Print "----------------------"
+  Print "(C)2005 Jerzy Walaszek"
+  Print
+
+' Najpierw wype³niamy tablicê d[] liczbami pseudolosowymi
+' a nastêpnie wyœwietlamy jej zawartoœæ
+
+  Randomize Timer
+  
+  For i = 1 To N: d(i) = Int(Rnd * 100): Next
+  Print "Przed sortowaniem:"
+  Print
+  For i = 1 To N: Print Using "####"; d(i);: Next
+  Print
+
+' Sortujemy
+
+  i = 1
+  Do
+    If d(i) > d(i+1) Then ' Porz¹dek rosn¹cy
+      Swap d(i), d(i+1)
+      i = 1
+      Continue Do
+    End If
+    i = i + 1
+  Loop Until i = N
+
+' Wyœwietlamy wynik sortowania
+
+  Print "Po sortowaniu"
+  Print
+  For i = 1 To N: Print Using "####"; d(i);: Next
+  Print
+  Print "Nacisnij Enter...";
+  Sleep
+  End 
