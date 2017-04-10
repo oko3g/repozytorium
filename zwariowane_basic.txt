@@ -1,0 +1,85 @@
+' Sortowanie Zwariowane
+' --------------------------------------------------------
+' (C)2012 mgr Jerzy Wa³aszek
+' I Liceum Ogólnokszta³c¹ce
+' im. K. Brodziñskiego
+' w Tarnowie
+'--------------------------------------------------------
+
+  Option Explicit
+
+  Const N = 8  ' Liczebnoœæ zbioru. Nie wstawiaj liczb
+               ' wiêkszych od 9, bo mo¿esz siê nie
+               ' doczekaæ rozwi¹zania
+
+  Dim Shared d(1 To N) As Integer
+
+  Declare Function Posortowane() As Integer
+
+  Declare Sub Tasuj()
+
+' Program g³ówny
+' --------------
+
+  Dim i As Integer
+
+  Print "Sortowanie  zwariowane"
+  Print "----------------------"
+  Print "(C)2005 Jerzy Walaszek"
+  Print
+
+' Najpierw wype³niamy tablicê d[] liczbami pseudolosowymi
+' a nastêpnie wyœwietlamy jej zawartoœæ
+
+  Randomize Timer
+  For i = 1 To N: d(i) = Int(Rnd * 10000): Next
+  Print "Przed sortowaniem:"
+  Print
+  For i = 1 To N: Print Using "######"; d(i);: Next
+  Print
+  Print
+
+' Sortujemy
+
+  While Posortowane() = 0: Tasuj(): Wend
+
+' Wyœwietlamy wynik sortowania
+
+  Print "Po sortowaniu:"
+  Print
+  For i = 1 To N: Print Using "######"; d(i);: Next
+  Print
+  Print
+  Print "Nacisnij Enter...";
+  Sleep
+  
+  End
+
+' Funkcja sprawdzaj¹ca uporz¹dkowanie w zbiorze
+'-----------------------------------------------------
+Public Function Posortowane() As Integer
+
+  Dim  i As Integer
+
+  For i = 1 To N - 1
+    If d(i) > d(i+1) Then
+      Posortowane = 0: Exit Function
+    End If
+  Next
+  Posortowane = 1
+
+End Function
+
+' Procedura tasuj¹ca zbiór
+'-------------------------
+Public Sub Tasuj()
+
+  Dim i As Integer, i1 As Integer, i2 As Integer
+
+  For i = 1 To 3 * N
+    i1 = 1 + Int(Rnd * N)
+    i2 = 1 + Int(Rnd * N)
+    Swap d(i1), d(i2)
+  Next
+
+End Sub 
