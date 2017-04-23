@@ -1,4 +1,4 @@
-// Sortowanie Metod¹ Shella
+// Sortowanie Metod¹ Shella6
 //--------------------------------------------------------
 // (C)2012 mgr Jerzy Wa³aszek
 // I Liceum Ogólnokszta³c¹ce
