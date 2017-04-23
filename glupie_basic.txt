@@ -1,4 +1,4 @@
-' Sortowanie G³upie2
+' Sortowanie G³upie22
 '--------------------------------------------------------
 ' (C)2012 mgr Jerzy Wa³aszek
 ' I Liceum Ogólnokszta³c¹ce
