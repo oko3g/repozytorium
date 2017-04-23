@@ -1,4 +1,4 @@
-// Sortowanie Zwariowane9
+// Sortowanie Zwariowane910
 //--------------------------------------------------------
 // (C)2012 mgr Jerzy Wa³aszek
 // I Liceum Ogólnokszta³c¹ce
