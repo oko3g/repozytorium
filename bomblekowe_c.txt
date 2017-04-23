@@ -23,4 +23,4 @@ cout<<t[j]<<" ";// wypisanie posortowanych liczb
 }
 getch();
 return 0;
-}
+}2
