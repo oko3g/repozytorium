@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 lolek i kubus
 2
+=======
+bolek i lolek
+2
+>>>>>>> 294f0e6f52c441bc17542ea812fc7aece347cbdb
