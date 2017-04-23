@@ -4,4 +4,4 @@ lolek i kubus
 =======
 bolek i lolek
 2
->>>>>>> 294f0e6f52c441bc17542ea812fc7aece347cbdb
+>>>>>>> 294f0e6f52c441bc17542ea812fc7aece347cbdb 5
